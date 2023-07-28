@@ -38,6 +38,6 @@ We have to use the books.json file to get the books' data. We can add more books
 
 8. Test: The application must have AT LEAST one test. Make the test that you consider most important for your application.
 
-![Reading list design](https://github.com/MrLapa/react-app-from-vanilla-javascript/assets/5798165/34159b4f-09ab-4d2c-9deb-f8aaa083e190)
+![Reading list design](https://github.com/MrLapa/reading-list-technical-test/assets/5798165/08d51e31-0ce5-49cf-9698-eae1f1a8fd28)
 
 **Feel free to leave feedback, and don't hesitate to reach out to me if you have any questions. I'll be happy to help you.** :+1:

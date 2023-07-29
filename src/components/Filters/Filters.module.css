@@ -1,0 +1,15 @@
+.wrapper {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+@media (max-width: 30rem) {
+  .wrapper {
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr;
+    justify-content: center;
+  }
+}

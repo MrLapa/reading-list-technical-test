@@ -6,16 +6,19 @@ import BooksList from "./components/BooksList/BooksList";
 import BooksCounter from "./components/BooksCounter/BooksCounter";
 import { library } from "../books.json";
 import useFilters from "./hooks/useFilters";
+import useBooks from "./hooks/useBooks";
 
 function App() {
   const { filteredBooks } = useFilters();
+  const { selectedBooks, addBookToReadingList, removeBookFromReadingList } =
+    useBooks();
 
   const onClickAddButtonHandler = (ISBN) => {
-    console.log("Add");
+    addBookToReadingList(ISBN);
   };
 
   const onClickRemoveButtonHandler = (ISBN) => {
-    console.log("Remove");
+    removeBookFromReadingList(ISBN);
   };
 
   return (
@@ -38,7 +41,7 @@ function App() {
         <aside className={classes["selected-books"]}>
           <h2 className={classes.title}>Reading list</h2>
           <BooksList
-            data={library}
+            data={selectedBooks}
             isRemoveButtonEnabled={true}
             onClickRemoveButton={onClickRemoveButtonHandler}
           />

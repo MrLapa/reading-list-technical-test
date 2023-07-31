@@ -10,15 +10,15 @@ import useBooks from "./hooks/useBooks";
 
 function App() {
   const { filteredBooks } = useFilters();
-  const { selectedBooks, addBookToReadingList, removeBookFromReadingList } =
+  const { selectedBooks, addToSelectedBooks, removeFromSelectedBooks } =
     useBooks();
 
   const onClickAddButtonHandler = (ISBN) => {
-    addBookToReadingList(ISBN);
+    addToSelectedBooks(ISBN);
   };
 
   const onClickRemoveButtonHandler = (ISBN) => {
-    removeBookFromReadingList(ISBN);
+    removeFromSelectedBooks(ISBN);
   };
 
   return (

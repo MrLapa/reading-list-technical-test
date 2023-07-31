@@ -26,8 +26,8 @@ function App() {
       <section className={classes["available-books"]}>
         <section className={classes["header-wrapper"]}>
           <BooksCounter
-            availableBooks={library.length}
-            selectedBooks={library.length}
+            availableBooks={filteredBooks.length}
+            selectedBooks={selectedBooks.length}
           />
           <Filters />
         </section>

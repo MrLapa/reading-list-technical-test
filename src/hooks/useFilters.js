@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { FiltersContext } from "../context/FiltersContextProvider";
-import { library } from "../../books.json";
+import useBooks from "./useBooks";
 
 const useFilters = () => {
   const { contextFilters: filters, setContextFilters } =
     useContext(FiltersContext);
+  const { availableBooks } = useBooks();
 
   const { pages: pagesFilter, category: categoryFilter } = filters;
 
@@ -12,7 +13,7 @@ const useFilters = () => {
     setContextFilters((prevState) => ({ ...prevState, pages, category }));
   };
 
-  const filteredBooks = library.filter(({ book: { pages, genre } }) => {
+  const filteredBooks = availableBooks.filter(({ book: { pages, genre } }) => {
     return categoryFilter === "all"
       ? pages <= pagesFilter
       : pages <= pagesFilter && genre === categoryFilter;

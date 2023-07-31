@@ -29,7 +29,7 @@ const Filters = () => {
         minPages={1}
         maxPages={1200}
         currentValue={50}
-        label={"Filter by pages"}
+        label={"Filter by max number of pages"}
         onChange={onChangeRangeHandler}
       />
       <Categories

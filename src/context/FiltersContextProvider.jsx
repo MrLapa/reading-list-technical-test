@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import useBooks from "../hooks/useBooks";
 
 export const FiltersContext = React.createContext();
 
 const FiltersContextProvider = ({ children }) => {
+  const { maxPages } = useBooks();
+
   const [contextFilters, setContextFilters] = React.useState({
     category: "all",
-    pages: 0,
+    pages: maxPages,
   });
 
   return (

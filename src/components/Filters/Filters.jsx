@@ -3,6 +3,7 @@ import classes from "./Filters.module.css";
 import Range from "../Range/Range";
 import Categories from "../Categories/Categories";
 import useFilters from "../../hooks/useFilters";
+import useBooks from "../../hooks/useBooks";
 
 const categoryOptions = [
   { value: "Fantasía", text: "Fantasía" },
@@ -13,7 +14,8 @@ const categoryOptions = [
 
 const Filters = () => {
   const { filters, setFilters } = useFilters();
-  const { category } = filters;
+  const { category, pages } = filters;
+  const { maxPages } = useBooks();
 
   const onChangeRangeHandler = (event) => {
     setFilters({ pages: event.target.value });
@@ -27,8 +29,8 @@ const Filters = () => {
     <section className={classes.wrapper}>
       <Range
         minPages={1}
-        maxPages={1200}
-        currentValue={50}
+        maxPages={maxPages}
+        currentValue={pages || maxPages}
         label={"Filter by max number of pages"}
         onChange={onChangeRangeHandler}
       />

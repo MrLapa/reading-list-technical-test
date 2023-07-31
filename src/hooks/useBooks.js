@@ -1,54 +1,36 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { BooksContext } from "../context/BooksContextProvider";
-import { library } from "../../books.json";
 
 const useBooks = () => {
-  const { selectedBooks, setSelectedBooks, availableBooks, setAvailableBooks } =
-    useContext(BooksContext);
+  const {
+    selectedBooks,
+    addToSelectedBooks,
+    removeFromSelectedBooks,
+    availableBooks,
+  } = useContext(BooksContext);
 
-  useEffect(() => {
-    setAvailableBooks(library);
-  }, [setAvailableBooks]);
+  const maxPagesAvailableBooks = availableBooks.reduce(
+    (max, { book: { pages } }) => {
+      return pages > max ? pages : max;
+    },
+    availableBooks[0].book.pages
+  );
 
-  const maxPages = library.reduce((max, { book: { pages } }) => {
-    return pages > max ? pages : max;
-  }, library[0].book.pages);
+  const maxPagesSelectedBooks =
+    selectedBooks.length > 0
+      ? selectedBooks.reduce((max, { book: { pages } }) => {
+          return pages > max ? pages : max;
+        }, selectedBooks[0].book.pages)
+      : 0;
 
-  const minPages = library.reduce((max, { book: { pages } }) => {
-    return pages < max ? pages : max;
-  }, library[0].book.pages);
-
-  const addBookToReadingList = (newISBN) => {
-    const newBook = availableBooks.find(
-      ({ book: { ISBN } }) => ISBN === newISBN
-    );
-
-    setSelectedBooks((prevItems) => [...prevItems, newBook]);
-
-    setAvailableBooks((prevItems) =>
-      prevItems.filter(({ book: { ISBN } }) => ISBN !== newISBN)
-    );
-  };
-
-  const removeBookFromReadingList = (removedISBN) => {
-    const removedBook = selectedBooks.find(
-      ({ book: { ISBN } }) => ISBN === removedISBN
-    );
-
-    setAvailableBooks((prevItems) => [...prevItems, removedBook]);
-
-    setSelectedBooks((prevItems) =>
-      prevItems.filter(({ book: { ISBN } }) => ISBN !== removedISBN)
-    );
-  };
+  const maxPages = Math.max(maxPagesAvailableBooks, maxPagesSelectedBooks);
 
   return {
     maxPages,
-    minPages,
     selectedBooks,
     availableBooks,
-    addBookToReadingList,
-    removeBookFromReadingList,
+    addToSelectedBooks,
+    removeFromSelectedBooks,
   };
 };
 

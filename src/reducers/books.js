@@ -5,9 +5,14 @@ export const BOOK_ACTION_TYPES = {
   REMOVE_BOOK__FROM_READING_LIST: "REMOVE_BOOK__FROM_READING_LIST",
 };
 
+const updateLocalStorage = ({ availableBooks, selectedBooks }) => {
+  localStorage.setItem("availableBooks", JSON.stringify(availableBooks));
+  localStorage.setItem("selectedBooks", JSON.stringify(selectedBooks));
+};
+
 export const initialState = {
-  availableBooks: library,
-  selectedBooks: [],
+  availableBooks: JSON.parse(localStorage.getItem("availableBooks")) || library,
+  selectedBooks: JSON.parse(localStorage.getItem("selectedBooks")) || [],
 };
 
 const reducer = (state, action) => {
@@ -27,6 +32,8 @@ const reducer = (state, action) => {
         ),
       };
 
+      updateLocalStorage(newState);
+
       return newState;
     }
 
@@ -41,6 +48,8 @@ const reducer = (state, action) => {
           ({ book: { ISBN } }) => ISBN !== payload.ISBN
         ),
       };
+
+      updateLocalStorage(newState);
 
       return newState;
     }

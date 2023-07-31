@@ -37,7 +37,7 @@ function App() {
           onClickAddButton={onClickAddButtonHandler}
         />
       </section>
-      {library.length > 0 && (
+      {selectedBooks.length > 0 && (
         <aside className={classes["selected-books"]}>
           <h2 className={classes.title}>Reading list</h2>
           <BooksList

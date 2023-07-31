@@ -2,7 +2,7 @@
 import classes from "./Filters.module.css";
 import Range from "../Range/Range";
 import Categories from "../Categories/Categories";
-import { useState } from "react";
+import useFilters from "../../hooks/useFilters";
 
 const categoryOptions = [
   { value: "Fantasía", text: "Fantasía" },
@@ -12,15 +12,15 @@ const categoryOptions = [
 ];
 
 const Filters = () => {
-  const [category, setCategory] = useState("all");
+  const { filters, setFilters } = useFilters();
+  const { category } = filters;
 
   const onChangeRangeHandler = (event) => {
-    console.log(event.target.value);
+    setFilters({ pages: event.target.value });
   };
 
   const onChangeCategoriesHandler = (event) => {
-    setCategory(event.target.value);
-    console.log(event.target.value);
+    setFilters({ category: event.target.value });
   };
 
   return (
@@ -29,7 +29,7 @@ const Filters = () => {
         minPages={1}
         maxPages={1200}
         currentValue={50}
-        label={"Filter by pages"}
+        label={"Filter by max number of pages"}
         onChange={onChangeRangeHandler}
       />
       <Categories

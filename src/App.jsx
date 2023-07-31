@@ -5,8 +5,11 @@ import Filters from "./components/Filters/Filters";
 import BooksList from "./components/BooksList/BooksList";
 import BooksCounter from "./components/BooksCounter/BooksCounter";
 import { library } from "../books.json";
+import useFilters from "./hooks/useFilters";
 
 function App() {
+  const { filteredBooks } = useFilters();
+
   const onClickAddButtonHandler = (ISBN) => {
     console.log("Add");
   };
@@ -26,7 +29,7 @@ function App() {
           <Filters />
         </section>
         <BooksList
-          data={library}
+          data={filteredBooks}
           isAddButtonEnabled={true}
           onClickAddButton={onClickAddButtonHandler}
         />

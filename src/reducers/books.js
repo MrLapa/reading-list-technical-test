@@ -5,14 +5,28 @@ export const BOOK_ACTION_TYPES = {
   REMOVE_BOOK__FROM_READING_LIST: "REMOVE_BOOK__FROM_READING_LIST",
 };
 
+const LOCAL_STORAGE_KEYS = {
+  AVAILABLE_BOOKS: "AVAILABLE_BOOKS",
+  SELECTED_BOOKS: "SELECTED_BOOKS",
+};
+
 const updateLocalStorage = ({ availableBooks, selectedBooks }) => {
-  localStorage.setItem("availableBooks", JSON.stringify(availableBooks));
-  localStorage.setItem("selectedBooks", JSON.stringify(selectedBooks));
+  localStorage.setItem(
+    LOCAL_STORAGE_KEYS.AVAILABLE_BOOKS,
+    JSON.stringify(availableBooks)
+  );
+  localStorage.setItem(
+    LOCAL_STORAGE_KEYS.SELECTED_BOOKS,
+    JSON.stringify(selectedBooks)
+  );
 };
 
 export const initialState = {
-  availableBooks: JSON.parse(localStorage.getItem("availableBooks")) || library,
-  selectedBooks: JSON.parse(localStorage.getItem("selectedBooks")) || [],
+  availableBooks:
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.AVAILABLE_BOOKS)) ||
+    library,
+  selectedBooks:
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.SELECTED_BOOKS)) || [],
 };
 
 const reducer = (state, action) => {

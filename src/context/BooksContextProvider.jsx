@@ -20,6 +20,11 @@ const BooksContextProvider = ({ children }) => {
       payload: { ISBN },
     });
 
+  const updateBooks = () =>
+    dispatch({
+      type: BOOK_ACTION_TYPES.UPDATE_STATE,
+    });
+
   return (
     <BooksContext.Provider
       value={{
@@ -27,6 +32,7 @@ const BooksContextProvider = ({ children }) => {
         addToSelectedBooks,
         removeFromSelectedBooks,
         availableBooks,
+        updateBooks,
       }}
     >
       {children}

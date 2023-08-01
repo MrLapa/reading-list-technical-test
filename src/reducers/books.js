@@ -1,13 +1,10 @@
 import { library } from "../../books.json";
+import { LOCAL_STORAGE_KEYS } from "../constants/localStorage";
 
 export const BOOK_ACTION_TYPES = {
   ADD_BOOK_TO_READING_LIST: "ADD_BOOK_TO_READING_LIST",
   REMOVE_BOOK__FROM_READING_LIST: "REMOVE_BOOK__FROM_READING_LIST",
-};
-
-const LOCAL_STORAGE_KEYS = {
-  AVAILABLE_BOOKS: "AVAILABLE_BOOKS",
-  SELECTED_BOOKS: "SELECTED_BOOKS",
+  UPDATE_STATE: "UPDATE_STATE",
 };
 
 const updateLocalStorage = ({ availableBooks, selectedBooks }) => {
@@ -64,6 +61,19 @@ const reducer = (state, action) => {
       };
 
       updateLocalStorage(newState);
+
+      return newState;
+    }
+
+    case BOOK_ACTION_TYPES.UPDATE_STATE: {
+      const newState = {
+        availableBooks: JSON.parse(
+          localStorage.getItem(LOCAL_STORAGE_KEYS.AVAILABLE_BOOKS)
+        ),
+        selectedBooks: JSON.parse(
+          localStorage.getItem(LOCAL_STORAGE_KEYS.SELECTED_BOOKS)
+        ),
+      };
 
       return newState;
     }

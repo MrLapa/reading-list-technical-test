@@ -7,6 +7,7 @@ const useBooks = () => {
     addToSelectedBooks,
     removeFromSelectedBooks,
     availableBooks,
+    updateBooks,
   } = useContext(BooksContext);
 
   const maxPagesAvailableBooks = availableBooks.reduce(
@@ -31,6 +32,7 @@ const useBooks = () => {
     availableBooks,
     addToSelectedBooks,
     removeFromSelectedBooks,
+    updateBooks,
   };
 };
 

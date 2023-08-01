@@ -7,11 +7,16 @@ import BooksCounter from "./components/BooksCounter/BooksCounter";
 import { library } from "../books.json";
 import useFilters from "./hooks/useFilters";
 import useBooks from "./hooks/useBooks";
+import { LOCAL_STORAGE_KEYS } from "./constants/localStorage";
 
 function App() {
   const { filteredBooks } = useFilters();
-  const { selectedBooks, addToSelectedBooks, removeFromSelectedBooks } =
-    useBooks();
+  const {
+    selectedBooks,
+    addToSelectedBooks,
+    removeFromSelectedBooks,
+    updateBooks,
+  } = useBooks();
 
   const onClickAddButtonHandler = (ISBN) => {
     addToSelectedBooks(ISBN);
@@ -20,6 +25,19 @@ function App() {
   const onClickRemoveButtonHandler = (ISBN) => {
     removeFromSelectedBooks(ISBN);
   };
+
+  const handleStorageChange = (event) => {
+    if (
+      event.key !== LOCAL_STORAGE_KEYS.AVAILABLE_BOOKS &&
+      event.key !== LOCAL_STORAGE_KEYS.SELECTED_BOOKS
+    ) {
+      return;
+    }
+
+    updateBooks();
+  };
+
+  window.addEventListener("storage", handleStorageChange);
 
   return (
     <main className={classes["main-wrapper"]}>

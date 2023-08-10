@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react"; // Import to use jest-dom matchers
-import BookItem from "./BookItem"; // Adjust the path to your component
+import { render, screen, fireEvent } from "@testing-library/react";
+import BookItem from "./BookItem";
 
 describe("BookItem", () => {
   it("renders without errors", () => {

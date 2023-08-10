@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
+
 import Filters from "./Filters";
 
 // Mock the custom hooks

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect"; // Import to use jest-dom matchers
-import Categories from "./Categories"; // Adjust the path to your component
+
+import Categories from "./Categories";
 
 describe("Categories", () => {
   const data = [

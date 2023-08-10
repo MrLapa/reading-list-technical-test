@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect"; // Import to use jest-dom matchers
-import Range from "./Range"; // Adjust the path to your component
+
+import Range from "./Range";
 
 describe("Range", () => {
   it("renders without errors", () => {

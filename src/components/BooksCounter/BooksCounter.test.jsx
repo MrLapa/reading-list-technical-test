@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import BooksCounter from "./BooksCounter"; // Adjust the import path
+import BooksCounter from "./BooksCounter";
 
 describe("BooksCounter", () => {
   it("displays the available and selected books count", () => {

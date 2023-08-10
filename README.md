@@ -6,6 +6,8 @@ This repository shows how to build a React application using different technique
 
 This project includes handling user interactions, state management, data filtering and code structuring.
 
+[demo](https://leafy-crostata-7a6702.netlify.app/)
+
 ## Context
 
 This project will be developed for a multinational book publishing company. They want to offer their audience a way to see your catalog and be able to save the books they are interested in a reading list.

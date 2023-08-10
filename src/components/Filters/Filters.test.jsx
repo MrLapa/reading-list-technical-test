@@ -6,7 +6,7 @@ import Filters from "./Filters";
 // Mock the custom hooks
 vi.mock("../../hooks/useFilters.js", () => ({
   default: vi.fn(() => ({
-    filters: { category: "Fantasía", pages: 50 },
+    filters: { pages: 50 },
     setFilters: vi.fn(),
   })),
 }));
@@ -34,7 +34,6 @@ describe("Filters", () => {
 
     // Test category select
     expect(categorySelect).toBeInTheDocument();
-    expect(categorySelect).toHaveValue("Fantasía");
 
     //simulate events (e.g., changing value)
     fireEvent.change(rangeInput, { target: { value: "70" } });

@@ -1,0 +1,50 @@
+.main-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 1.5rem;
+  padding: 2rem 4rem;
+  grid-template-areas: "available selected";
+}
+
+.available-books {
+  grid-area: available;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.selected-books {
+  grid-area: selected;
+  border: 1px solid #ffffff;
+  padding: 24px 4px;
+  border-radius: 12px;
+  background-color: #1a1a1a;
+}
+
+.selected-books .title {
+  text-align: center;
+}
+
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 80rem) {
+  .main-wrapper {
+    grid-template: 1fr 1fr / 1fr;
+    gap: 80px 0;
+    justify-content: space-between;
+    grid-template-areas:
+      "available"
+      "selected";
+    padding: 2rem 1rem;
+  }
+
+  .selected-books {
+    align-items: center;
+  }
+}

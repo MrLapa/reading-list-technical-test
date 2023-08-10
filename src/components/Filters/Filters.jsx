@@ -14,7 +14,7 @@ const categoryOptions = [
 
 const Filters = () => {
   const { filters, setFilters } = useFilters();
-  const { category, pages } = filters;
+  const { pages } = filters;
   const { maxPages } = useBooks();
 
   const onChangeRangeHandler = (event) => {
@@ -38,7 +38,6 @@ const Filters = () => {
         data={categoryOptions}
         textLabel={"Filter by category"}
         onChange={onChangeCategoriesHandler}
-        defaultValue={category}
       />
     </section>
   );

@@ -1,16 +1,15 @@
-/* eslint-disable react/prop-types */
-import classes from "./BooksList.module.css";
-import Book from "../BookItem/BookItem";
+import classes from './BooksList.module.css'
+import Book from '../BookItem/BookItem'
 
 const BooksList = ({
   data,
   isAddButtonEnabled = false,
   isRemoveButtonEnabled = false,
-  onClickAddButton = () => {},
-  onClickRemoveButton = () => {},
+  onClickAddButton = () => { },
+  onClickRemoveButton = () => { }
 }) => {
   return (
-    <section className={classes["wrapper"]}>
+    <section className={classes.wrapper}>
       {data &&
         data.map(({ book: { cover, ISBN, title } }) => (
           <Book
@@ -24,7 +23,7 @@ const BooksList = ({
           />
         ))}
     </section>
-  );
-};
+  )
+}
 
-export default BooksList;
+export default BooksList

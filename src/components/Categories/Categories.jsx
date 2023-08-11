@@ -1,12 +1,11 @@
-/* eslint-disable react/prop-types */
-import classes from "./Categories.module.css";
+import classes from './Categories.module.css'
 
 const Categories = ({ textLabel, onChange, data }) => {
   return (
     <div className={classes.wrapper}>
-      <label htmlFor="categories">{textLabel}</label>
-      <select name="categories" id="categories" onChange={onChange}>
-        <option key="all" value="all">
+      <label htmlFor='categories'>{textLabel}</label>
+      <select name='categories' id='categories' onChange={onChange}>
+        <option key='all' value='all'>
           All
         </option>
         {data.map(({ value, text }) => (
@@ -16,7 +15,7 @@ const Categories = ({ textLabel, onChange, data }) => {
         ))}
       </select>
     </div>
-  );
-};
+  )
+}
 
-export default Categories;
+export default Categories

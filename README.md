@@ -8,6 +8,31 @@ This project includes handling user interactions, state management, data filteri
 
 [demo](https://leafy-crostata-7a6702.netlify.app/)
 
+## 🚀 Quick start
+
+1.  **Clone the repo.**
+    ```shell
+    git clone https://github.com/MrLapa/reading-list-technical-test.git
+    ```
+
+2.  **Start developing.**
+
+    Navigate into the site’s directory and start it up.
+
+    ```shell
+    cd reading-list-technical-test/
+    npm install
+    npm run dev
+    ```
+
+3.  **Open the code and start customizing!**
+
+## 🧪 Test app
+
+```shell
+    npm run test
+```
+
 ## Context
 
 This project will be developed for a multinational book publishing company. They want to offer their audience a way to see your catalog and be able to save the books they are interested in a reading list.
